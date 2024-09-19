@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns = "http://www.w3.org/1999/html" xmlns:th = "http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <title>Demon Book | List of Demons</title>
+    <style>
+<!--        img{-->
+<!--        padding: 3px;-->
+<!--        }-->
+    </style>
+</head>
+<body>
+
+<h1> Demon List</h1>
+<!--width="100px" height="125px"-->
+<img th:src="@{gameD2.jpg}" alt="pict" >
+<br>
+<img src="gameD3.jpg" alt="pict">
+<br>
+<a th:href="@{add}" title="Add a new Demon">Summon a new Demon</a>
+<div th:each = "demon: ${demons}">
+    <ul>
+        <li>
+<!--            <h3 th:text = "${demon.getName()}"></h3>-->
+            <a th:href="@{'/demons/edit/' + ${demon.id}}"><p th:text = "${demon.getName()}"></p></a>
+
+        </li>
+        <li>
+<!--            <h3 th:text = "${demon.getHeight()}"></h3>-->
+                <p th:text = "${demon.getHeight()}"></p>
+        </li>
+        <li>
+<!--            <h3 th:text = "${demon.getWeight()}"></h3>-->
+                <p th:text = "${demon.getWeight()}"></p>
+        </li>
+        <li>
+<!--            <h3 th:text = "${demon.getDescription()}"></h3>-->
+                <p th:text = "${demon.getDescription()}"></p>
+        </li>
+        <li>
+            <a th:href="@{'/demons/delete/' + ${demon.id}}">Delete</a>
+        </li>
+
+    </ul>
+</div>
+
+</body>
+</html>
